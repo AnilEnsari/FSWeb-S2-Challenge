@@ -217,10 +217,15 @@ manav = meyveler.concat(sebzeler);
 			4. elde edilen string döndürülecek
  */
 
-function emojileriDonustur(/* kodlar buraya */) {
-  /* kodlar buraya */
+function emojileriDonustur(atilanMesaj, emojiObject) {
+  for (let key in emojiObject) {
+    atilanMesaj = atilanMesaj
+      .replaceAll(key.toUpperCase(), emojiObject[key])
+      .replaceAll(key.toLowerCase(), emojiObject[key]);
+  }
+  return atilanMesaj;
 }
-
+console.log(emojileriDonustur("Merhaba :d, :P", emojiler));
 /*  Bu satırın aşağısındaki kodları lütfen değiştirmeyin  */
 function sa() {
   console.log("Kodlar çalışıyor");
