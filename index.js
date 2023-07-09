@@ -99,13 +99,16 @@ function cumleKur(
 
 /* (Oto test yok) cumleKur fonksiyonuna yalnızca 1 parametre göndererek "Hello World!" stringini elde edin, 
 sonucu konsolde gözlemleyin */
-
+console.log(cumleKur("Hello World!"));
 /* (Oto test yok) cumleKur fonksiyonuna yalnızca 2 parametre göndererek "Hello World!" stringini elde edin, 
 sonucu konsolde gözlemleyin */
-
+console.log(cumleKur("Hello", " World!"));
 /* (Oto test var) cumleKur fonksiyonuna 5 parametre göndererek "Ben iyi bir yazılımcı olacağım!" stringini 
 elde edin, sonucu `bircumle` değişkenine atayın ve konsolde gözlemleyin */
 var bircumle;
+bircumle = cumleKur("Ben", " iyi ", "bir ", "yazılımcı ", "olacağım!");
+
+console.log(bircumle);
 
 /* kodlar buraya */
 
@@ -128,9 +131,13 @@ var bircumle;
 			5. Oluşturulan yeni dizi döndürülecek.
 	*/
 
-function cumlelereDonustur(/* kodlar buraya */) {
+function cumlelereDonustur(cumleler1, sep1 = "," /* kodlar buraya */) {
+  let newArray2 = cumleler1.map((cumle) => cumle.join(sep1));
+
+  return newArray2;
   /* kodlar buraya */
 }
+console.log(cumlelereDonustur(cumleler));
 
 /* GÖREV 2:
 		paragrafOlustur fonksiyonuna aşağıdakileri uygulayın.
@@ -145,8 +152,19 @@ function cumlelereDonustur(/* kodlar buraya */) {
 			6. Oluşturulan paragraf döndürülecek
 	*/
 
-function paragrafOlustur(/* kodlar buraya */) {
-  /* kodlar buraya */
+function paragrafOlustur(
+  cumleler2,
+  cumleKur2,
+  cumlelereDonustur2 /* kodlar buraya */
+) {
+  let newArray3 = cumlelereDonustur2(cumleler2, " ");
+  return cumleKur2(
+    newArray3[1],
+    newArray3[3],
+    newArray3[5],
+    newArray3[7],
+    newArray3[9]
+  );
 }
 
 /* 	GÖREV 3:
@@ -154,6 +172,12 @@ function paragrafOlustur(/* kodlar buraya */) {
 			3a. meyveler dizisinin ilk ve son elemanlarını diziden çıkartın. (.pop ve .shift metodlarını kullanın)
  */
 //3a çözümü
+const sebzeler2 = [...sebzeler];
+const meyveler2 = [...meyveler];
+sebzeler2.pop();
+sebzeler2.shift();
+meyveler.pop();
+meyveler.shift();
 /* kodlar buraya */
 
 /* 			3b.  Bir tavşan ve bir kirpi arkadaşlar sebzeler dizimizin peşine düştü. Tavşan => 🐇 , Kirpi=> 🦔 , 
@@ -162,6 +186,9 @@ arkalarından dolaşacak. Varsayalım ki arkadaşların planları başarılı ol
 Kirpiyi dizinin son elemanına ekleyin 🦔
  */
 //3b çözümü
+sebzeler.unshift("🐇");
+sebzeler.push("🦔");
+console.log(sebzeler);
 /* kodlar buraya */
 
 /* 			3c. manav isminde bir dizi oluşturun.`meyveler` dizisi ilk elemanlara, `sebzeler` dizisi son 
@@ -171,6 +198,7 @@ elemanlara denk gelecek şekilde, iki diziyi birleştirip sonucu manav dizisine 
 /* kodlar buraya */
 
 var manav;
+manav = meyveler.concat(sebzeler);
 
 /* 	GÖREV 4:
 		Yeni kurulmuş bir mesajlaşma startup firması atılan mesajları emojilerle zenginleştirmek istiyor. 
